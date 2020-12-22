@@ -36,7 +36,6 @@ _charm_multiplier = {
 }
 
 
-
 def get_base_odds(gen, charm):
     """Get the shiny odds for a generation
 

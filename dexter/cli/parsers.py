@@ -7,7 +7,7 @@ Configure the argument parsers
 import argparse
 
 import dexter
-from dexter.cli import odds, simulate, common
+from dexter.cli import odds, simulate
 
 
 def generate_parser():

@@ -34,6 +34,9 @@ testing-requirements:
 test-unit:
 	$(PYTHON) -m pytest -v --durations=20 --cov-config .coveragerc --cov $(REPO)
 
+.PHONY: test
+test: test-lint test-unit
+
 # Version is created on tag
 .PHONY: version
 version:
