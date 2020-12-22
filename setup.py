@@ -29,6 +29,7 @@ setup(
     version=package_version,
     description="Simulate the odds/time required to SR for a shiny",
     long_description=LONG_DESCRIPTION,
+    long_description_content_type="text/markdown",
     author="Taylor Smith",
     project_urls={
         'Source Code': f'https://github.com/tgsmith61591/{package_name}',
