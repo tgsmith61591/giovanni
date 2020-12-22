@@ -1,0 +1,5 @@
+include giovanni/VERSION
+recursive-include giovanni *
+include README.md
+include requirements.txt
+global-exclude __pycache__

@@ -2,11 +2,12 @@ SHELL := /bin/bash
 PYTHON ?= python
 CWD = $(shell pwd)
 
+REPO := giovanni
+
 # Source git tag/hash info
+include $(CWD)/dist.mk
 include $(CWD)/git.mk
 include $(CWD)/lint.mk
-
-REPO := dexter
 
 .PHONY: clean
 clean:
@@ -22,10 +23,6 @@ clean:
 requirements:
 	$(PYTHON) -m pip install -r requirements.txt
 
-.PHONY: sdist
-sdist: version
-	$(PYTHON) setup.py sdist
-
 .PHONY: testing-requirements
 testing-requirements:
 	$(PYTHON) -m pip install pytest coverage pytest-cov codecov
@@ -36,14 +33,3 @@ test-unit:
 
 .PHONY: test
 test: test-lint test-unit
-
-# Version is created on tag
-.PHONY: version
-version:
-ifneq ($(RELEASE_TAG),)
-	echo "Tag is $(RELEASE_TAG)"
-	echo $(RELEASE_TAG) > $(CWD)/$(REPO)/VERSION
-else
-	echo "Not a tagged commit, will not write to VERSION file"
-	exit 1
-endif

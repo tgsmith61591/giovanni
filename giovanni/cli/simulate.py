@@ -3,7 +3,7 @@
 """
 Main module and argparser for the `simulate` command
 
-    $ dexter simulate <options>
+    $ giovanni simulate <options>
 """
 
 import numpy as np
@@ -12,9 +12,9 @@ import pandas as pd
 import textwrap
 import tqdm
 
-from dexter.cli import common
-from dexter import odds
-from dexter import utils
+from giovanni.cli import common
+from giovanni import odds
+from giovanni import utils
 
 
 def configure_subparser(subparsers):
@@ -27,7 +27,7 @@ def configure_subparser(subparsers):
     example = textwrap.dedent("""
     Examples:
 
-        $ dexter simulate --gen 4 -n 100
+        $ giovanni simulate --gen 4 -n 100
     """)
 
     p = subparsers.add_parser(

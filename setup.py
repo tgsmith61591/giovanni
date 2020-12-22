@@ -8,7 +8,7 @@ from setuptools import find_packages
 MIN_PYTHON = (3, 7)
 
 # Get package version
-package_name = "dexter"
+package_name = "giovanni"
 try:
     version_path = Path(__file__).parent / package_name / 'VERSION'
     package_version = version_path.read_text().strip()
@@ -30,9 +30,10 @@ setup(
     description="Simulate the odds/time required to SR for a shiny",
     long_description=LONG_DESCRIPTION,
     author="Taylor Smith",
-    author_email=[
-        "taylor.smith@alkaline-ml.com",
-    ],
+    project_urls={
+        'Source Code': f'https://github.com/tgsmith61591/{package_name}',
+    },
+    author_email="taylor.smith@alkaline-ml.com",
     classifiers=[
         'Intended Audience :: Developers',
         'Programming Language :: Python',

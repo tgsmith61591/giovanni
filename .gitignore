@@ -140,5 +140,8 @@ dmypy.json
 # pytype static type analyzer
 .pytype/
 
+# Ignore the VERSION file
+VERSION
+
 # Cython debug symbols
 cython_debug/

@@ -2,7 +2,7 @@
 
 import numpy as np
 from unittest import mock
-from dexter.cli import simulate
+from giovanni.cli import simulate
 
 
 class MockRandomState:

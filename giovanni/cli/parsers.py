@@ -6,8 +6,8 @@ Configure the argument parsers
 
 import argparse
 
-import dexter
-from dexter.cli import odds, simulate
+import giovanni
+from giovanni.cli import odds, simulate
 
 
 def generate_parser():
@@ -25,14 +25,14 @@ def generate_parser():
     the `do_call` arbitration logic which command is being run.
     """
     p = argparse.ArgumentParser(
-        description="dexter is a tool for simulating shiny encouter rates "
+        description="giovanni is a tool for simulating shiny encouter rates "
                     "or computing the odds of a shiny encounter"
     )
     p.add_argument(
         "-V", "--version",
         action="version",
-        version=f"dexter {dexter.__version__}",
-        help="Show the dexter version number and exit.",
+        version=f"giovanni {giovanni.__version__}",
+        help="Show the giovanni version number and exit.",
     )
 
     subparsers = p.add_subparsers(

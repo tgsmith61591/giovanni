@@ -3,12 +3,12 @@
 """
 Simulate shiny encounter rates
 
-dexter provides the following commands:
+giovanni provides the following commands:
 
     Information
     ===========
 
-    help      : display a list of available dexter commands and their help
+    help      : display a list of available giovanni commands and their help
                 information
 
     Simulations
@@ -26,13 +26,13 @@ dexter provides the following commands:
 
 Additional help for each command can be accessed by using:
 
-    dexter <command> -h
+    giovanni <command> -h
 """
 
 import sys
 
-from dexter.cli import odds, simulate, parsers, common
-from dexter import utils
+from giovanni.cli import odds, simulate, parsers, common
+from giovanni import utils
 
 
 def main():
@@ -45,7 +45,7 @@ def main():
     logger = utils.get_logger(__name__, level=level)
 
     mod_name = args.cmd
-    logger.debug(f"Calling dexter.cli.{mod_name}.do_call")
+    logger.debug(f"Calling giovanni.cli.{mod_name}.do_call")
 
     # Determine which command was run, delegate to its submodule
     if mod_name == "odds":

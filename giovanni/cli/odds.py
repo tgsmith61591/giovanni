@@ -3,14 +3,14 @@
 """
 Main module and argparser for the probability/odds commands
 
-    $ dexter odds <options>
+    $ giovanni odds <options>
 """
 
 import textwrap
 
-from dexter.cli import common
-from dexter import odds
-from dexter import utils
+from giovanni.cli import common
+from giovanni import odds
+from giovanni import utils
 
 
 def configure_subparser(subparsers):
@@ -23,7 +23,7 @@ def configure_subparser(subparsers):
     example = textwrap.dedent("""
     Examples:
 
-        $ dexter odds --gen 4 --soft_resets 100
+        $ giovanni odds --gen 4 --soft_resets 100
     """)
 
     p = subparsers.add_parser(
