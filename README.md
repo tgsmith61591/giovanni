@@ -11,21 +11,21 @@ Compute the probability of encountering a shiny in Gen 4 with a single encounter
 
 ```
 $ python -m giovanni odds --gen 4 --verbose
-[INFO] 2020-12-22 16:07:54 [giovanni.cli.odds] - Odds of shiny encounter after 1 soft reset: 0.012%
+[INFO] 2020-12-22 16:07:54 [giovanni.cli.odds] - Odds of shiny after 1 soft reset: 0.012%
 ```
 
 The probability of encountering a shiny in Gen 6 with 5000 SRs and a shiny charm equipped:
 
 ```
 $ python -m giovanni odds --gen 6 --soft_resets 5000 --charm
-[INFO] 2020-12-22 16:07:57 [giovanni.cli.odds] - Odds of shiny encounter after 5,000 soft resets: 91.301%
+[INFO] 2020-12-22 16:07:57 [giovanni.cli.odds] - Odds of shiny after 5,000 soft resets: 91.301%
 ```
 
 The odds of encountering a shiny starter in HG/SS after 2500 SRs:
 
 ```
 $ python -m giovanni odds --gen 4 --soft_resets 2500 --swarm_size 3
-[INFO] 2020-12-24 07:40:44 [giovanni.cli.odds] - Odds of shiny encounter after 2,500 soft resets: 59.972%
+[INFO] 2020-12-24 07:40:44 [giovanni.cli.odds] - Odds of shiny after 2,500 soft resets: 59.972%
 ```
 
 
