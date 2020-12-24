@@ -66,7 +66,7 @@ def do_call(args):
     logger.debug(f"Generation: {gen} (base rate={base_rate:.6f})")
 
     proba = 100 * _get_proba(
-        base_rate, num_sr, swarm_size=swarm_size, charm=charm,
+        base_rate, num_sr, swarm_size=swarm_size,
     )
 
     logger.info(
@@ -77,8 +77,8 @@ def do_call(args):
     return 0
 
 
-def _get_proba(rate, n_tries, swarm_size, charm):
+def _get_proba(rate, n_tries, swarm_size):
     """Compute the probability"""
-    p_no_encounter_single = (1. - rate)
+    p_no_encounter_single = (1. - rate) ** swarm_size
     p_no_encouter = p_no_encounter_single ** n_tries
     return 1 - p_no_encouter

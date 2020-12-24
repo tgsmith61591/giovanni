@@ -21,6 +21,13 @@ $ python -m giovanni odds --gen 6 --soft_resets 5000 --charm
 [INFO] 2020-12-22 16:07:57 [giovanni.cli.odds] - Probability of shiny encounter after 5,000 soft resets: 91.301%
 ```
 
+The odds of encountering a shiny starter in HG/SS after 2500 SRs:
+
+```
+$ python -m giovanni odds --gen 4 --soft_resets 2500 --swarm_size 3
+[INFO] 2020-12-24 07:40:44 [giovanni.cli.odds] - Probability of shiny encounter after 2,500 soft resets: 59.972%
+```
+
 
 ### Montecarlo simulation:
 
@@ -28,7 +35,7 @@ A simulation of Gen 6 soft resets required to encounter a shiny:
 
 ```
 $ python -m giovanni simulate --gen 6 -n 5000
-simulation: 100%|██████████████████████████████████████████████████████████████████| 5000/5000 [00:13<00:00, 365.02it/s]
+simulation: 100%|████████████████████████████████████████████| 5000/5000 [00:13<00:00, 365.02it/s]
 [INFO] 2020-12-22 15:53:43 [giovanni.cli.simulate] - Montecarlo simulation results --
 Average     3980.136
 Std Dev     3983.669
@@ -42,7 +49,7 @@ the `swarm_size` argument:
 
 ```
 python -m giovanni simulate --gen 4 -n 5000 --swarm_size 3
-simulation: 100%|██████████████████████████████████████████████████████████████████| 5000/5000 [00:15<00:00, 329.87it/s]
+simulation: 100%|████████████████████████████████████████████| 5000/5000 [00:15<00:00, 329.87it/s]
 [INFO] 2020-12-22 15:51:01 [giovanni.cli.simulate] - Montecarlo simulation results --
 Average     2737.669
 Std Dev     2717.707
