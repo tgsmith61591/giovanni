@@ -70,7 +70,7 @@ def do_call(args):
     )
 
     logger.info(
-        f"Probability of shiny encounter after {num_sr:,} soft "
+        f"Odds of shiny encounter after {num_sr:,} soft "
         f"reset{'s' if num_sr > 1 else ''}: {proba:.3f}%"
     )
 
