@@ -46,4 +46,7 @@ setup(
     zip_safe=False,
     install_requires=req_file,
     python_requires=f'>={MIN_PYTHON[0]}.{MIN_PYTHON[1]}',
+    entry_points={
+        'console_scripts': ['giovanni=giovanni.cli.main:main']
+    }
 )

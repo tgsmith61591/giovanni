@@ -10,21 +10,21 @@ generation of Pokemon.
 Compute the probability of encountering a shiny in Gen 4 with a single encounter:
 
 ```
-$ python -m giovanni odds --gen 4 --verbose
+$ giovanni odds --gen 4 --verbose
 [INFO] 2020-12-22 16:07:54 [giovanni.cli.odds] - Odds of shiny after 1 soft reset: 0.012%
 ```
 
 The probability of encountering a shiny in Gen 6 with 5000 SRs and a shiny charm equipped:
 
 ```
-$ python -m giovanni odds --gen 6 --soft_resets 5000 --charm
+$ giovanni odds --gen 6 --soft_resets 5000 --charm
 [INFO] 2020-12-22 16:07:57 [giovanni.cli.odds] - Odds of shiny after 5,000 soft resets: 91.301%
 ```
 
 The odds of encountering a shiny starter in HG/SS after 2500 SRs:
 
 ```
-$ python -m giovanni odds --gen 4 --soft_resets 2500 --swarm_size 3
+$ giovanni odds --gen 4 --soft_resets 2500 --swarm_size 3
 [INFO] 2020-12-24 07:40:44 [giovanni.cli.odds] - Odds of shiny after 2,500 soft resets: 59.972%
 ```
 
@@ -34,7 +34,7 @@ $ python -m giovanni odds --gen 4 --soft_resets 2500 --swarm_size 3
 A simulation of Gen 6 soft resets required to encounter a shiny:
 
 ```
-$ python -m giovanni simulate --gen 6 -n 5000
+$ giovanni simulate --gen 6 -n 5000
 simulation: 100%|████████████████████████████████████████████| 5000/5000 [00:13<00:00, 365.02it/s]
 [INFO] 2020-12-22 15:53:43 [giovanni.cli.simulate] - Montecarlo simulation results --
 Average     3980.136
@@ -48,7 +48,7 @@ To simulate, e.g., SS/HG soft resets required to encounter a shiny starter use
 the `swarm_size` argument:
 
 ```
-python -m giovanni simulate --gen 4 -n 5000 --swarm_size 3
+$ giovanni simulate --gen 4 -n 5000 --swarm_size 3
 simulation: 100%|████████████████████████████████████████████| 5000/5000 [00:15<00:00, 329.87it/s]
 [INFO] 2020-12-22 15:51:01 [giovanni.cli.simulate] - Montecarlo simulation results --
 Average     2737.669
@@ -89,6 +89,12 @@ giovanni is available on public PyPi:
 
 ```bash
 $ pip install giovanni
+```
+
+Once installed, it can be used like so:
+
+```bash
+$ giovanni odds --gen 4
 ```
 
 ### Get setup for local dev:
