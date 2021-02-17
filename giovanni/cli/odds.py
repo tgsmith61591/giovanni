@@ -9,7 +9,8 @@ Main module and argparser for the probability/odds commands
 import textwrap
 
 from giovanni.cli import common
-from giovanni import odds
+from giovanni import base
+from giovanni.src import proba as proba_lib
 from giovanni import utils
 
 
@@ -62,10 +63,10 @@ def do_call(args):
     logger.debug(f"Swarm size: {swarm_size}")
     logger.debug(f"Shiny charm: {charm}")
 
-    base_rate = odds.get_base_odds(gen, charm)
+    base_rate = base.get_base_odds(gen, charm)
     logger.debug(f"Generation: {gen} (base rate={base_rate:.6f})")
 
-    proba = 100 * _get_proba(
+    proba = 100 * proba_lib.compute_sr_proba(
         base_rate, num_sr, swarm_size=swarm_size,
     )
 
@@ -75,10 +76,3 @@ def do_call(args):
     )
 
     return 0
-
-
-def _get_proba(rate, n_tries, swarm_size):
-    """Compute the probability"""
-    p_no_encounter_single = (1. - rate) ** swarm_size
-    p_no_encouter = p_no_encounter_single ** n_tries
-    return 1 - p_no_encouter

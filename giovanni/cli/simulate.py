@@ -13,7 +13,8 @@ import textwrap
 import tqdm
 
 from giovanni.cli import common
-from giovanni import odds
+from giovanni import base
+from giovanni.src import proba as proba_lib
 from giovanni import utils
 
 
@@ -69,12 +70,15 @@ def do_call(args):
     logger.debug(f"Swarm size: {swarm_size}")
     logger.debug(f"Shiny charm: {charm}")
 
-    base_rate = odds.get_base_odds(gen, charm)
+    base_rate = base.get_base_odds(gen, charm)
     logger.debug(f"Generation: {gen} (base rate={base_rate:.6f})")
 
     simulations = []
     for _ in tqdm.tqdm(range(num_sim), desc="simulation"):
-        simulations.append(_simulation(base_rate, swarm_size))
+        simulations.append(
+            # TODO: seeds?
+            proba_lib.simulate_sr_for_encounter(base_rate, swarm_size),
+        )
 
     simulations = np.asarray(simulations)
     name = f"Required encounters (gen={gen}, " \
@@ -93,35 +97,3 @@ def do_call(args):
     )
 
     return 0
-
-
-def _simulation(rate, swarm_size, batch_size=10000):
-    """Calculate the number of SRs required for a single simulation"""
-    arange = np.arange(batch_size)
-    rs = np.random.RandomState()
-
-    # TODO: cython would be cool to speed this up
-    def _sim_batch(n):
-        """
-        Generate a batch of random numbers. It is faster to compute
-        randoms in a batch than it is one by one. Once this random generator
-        is exhausted, generate a new one.
-        """
-        batch = rs.rand(n, swarm_size)
-        mask = np.any(batch < rate, axis=1)
-
-        if not mask.any():
-            return None
-
-        # Get the first scenario it finds
-        return arange[mask][0]
-
-    i = 1
-    while True:
-        which_idx = _sim_batch(batch_size)
-
-        if which_idx is None:
-            i += batch_size
-        else:
-            i += which_idx
-            return i
