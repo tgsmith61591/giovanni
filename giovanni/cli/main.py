@@ -29,16 +29,13 @@ Additional help for each command can be accessed by using:
     giovanni <command> -h
 """
 
-import sys
-
 from giovanni.cli import odds, simulate, parsers, common
 from giovanni import utils
 
 
 def main():
     """Run the module"""
-    p = parsers.generate_parser()
-    args = p.parse_args()
+    _, args = parsers.generate_and_parse()
 
     # Use debug mode if verbose is set
     level = common.get_logging_level(args, "INFO")
@@ -58,4 +55,4 @@ def main():
             f"as an issue to the developers!"
         )
 
-    sys.exit(exit_code)
+    return exit_code

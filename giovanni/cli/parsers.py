@@ -10,6 +10,19 @@ import giovanni
 from giovanni.cli import odds, simulate
 
 
+def generate_and_parse():
+    """Get the CLI parser and parse the args
+
+    Creates the parser including all subparsers, and parses the args. This is
+    used rather than `generate_parser` directly so that we can more easily mock
+    user input for unit testing.
+    """
+    p = generate_parser()
+    args = p.parse_args()
+
+    return p, args
+
+
 def generate_parser():
     """Get the CLI parser
 

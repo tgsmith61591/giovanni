@@ -33,7 +33,7 @@ def test_compute_sr_proba_error():
 
 class MockRandomState:
     v = None
-    
+
     def __init__(self, *_):
         pass
 
