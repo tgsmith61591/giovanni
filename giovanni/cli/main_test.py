@@ -12,8 +12,9 @@ class MockArgs:
 
 
 def mock_generate_and_parse(parser, args):
+    """Factory method for mock `generate_and_parse` method"""
     def _mocked():
-        return (parser, args)
+        return (parser, args)  # called inside the function
     return _mocked
 
 
